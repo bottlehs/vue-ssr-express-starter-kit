@@ -8,12 +8,15 @@ const createListView = id => () => import('../views/CreateListView').then(m => m
 const ItemView = () => import('../views/ItemView.vue')
 const UserView = () => import('../views/UserView.vue')
 
+const Crud = () => import('../views/Crud.vue')
+
 export function createRouter () {
   return new Router({
     mode: 'history',
     fallback: false,
     scrollBehavior: () => ({ y: 0 }),
     routes: [
+      { path: '/crud', component: Crud },
       { path: '/top/:page(\\d+)?', component: createListView('top') },
       { path: '/new/:page(\\d+)?', component: createListView('new') },
       { path: '/show/:page(\\d+)?', component: createListView('show') },
